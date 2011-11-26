@@ -1,0 +1,163 @@
+/* Main */
+body {
+background: -webkit-gradient(linear, left top, left bottom, from(#F2FFE5), to(#fff)); /* for webkit browsers */
+background: -moz-linear-gradient(top,  #FFF,  #FFE6CC); /* for firefox 3.6+ */ 
+}
+
+content {
+	background-color:#8F2E2E;
+	width:100%;
+}
+
+hr {
+	width: 30%;
+	margin: auto;
+	margin-bottom: 17px;
+}
+
+a, a:visited {
+	text-decoration:none;
+}
+
+a:hover {
+	text-decoration:underline;
+}
+
+/* Headers */
+
+#header h1 {
+     font-size: 4em;
+     margin-bottom: 2px;
+     width: 400px;
+}
+
+#header h1 a {
+	text-decoration: none;
+}
+
+/* Main menu */
+
+#main_menu {
+    margin-left: 0;
+    padding-left: 0;
+    text-align: left;
+    white-space: nowrap;
+}
+
+#main_menu li {
+    display: inline;
+    font-size: 1em;
+    list-style-type: none;
+}
+
+#main_menu a {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #E5ECF9;
+    border-color: -moz-use-text-color #C3D9FF #C3D9FF;
+    border-radius: 0 0 5px 5px;
+    border-right: 1px solid #C3D9FF;
+    border-style: none solid solid;
+    border-width: medium 1px 1px;
+    box-shadow: 0.5px 0.5px 0.25px #E5ECF9;
+    padding: 3px 10px;
+}
+
+#main_menu a:link, #main_menu a:visited {
+    text-decoration: none;
+}
+
+#main_menu a:hover {
+    background: none repeat scroll 0 0 #C3D9FF;
+    text-decoration: none;
+}
+
+#slogan {
+    border-bottom: 1px dotted #000000;
+    border-top: 1px dotted #000000;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+.box {
+	background: #FFD9B3;
+	border-radius: 15px;
+	box-shadow: 1px 1px 1px #C2CFE9;
+}
+.box li {
+}
+.box ul {
+	margin-left:0;
+	padding-left:0;
+	list-style: none;
+}
+
+/* Article */
+
+.article {
+	margin: 0;
+	margin-bottom: 20px;
+	padding:15px;
+	background: #E5ECF9;
+	border-radius: 10px;
+
+}
+
+.article h2 {
+	margin: 0;
+	/*border-bottom: 1px #2A0F0F solid;*/
+}
+
+.article.blog_header a{
+	text-decoration:none;
+}
+
+.article .blog_header a:active{
+	text-decoration:none;
+}
+
+.article .date {
+	margin-bottom:10px;
+}
+
+.article p {
+}
+
+.comment {
+	margin: 10px 0;
+	width: 60%;
+	border-top: 1px dotted #000;
+}
+
+#tags{
+	height: 100px; 
+	overflow: auto;  
+	color: #000; 
+	margin-bottom: 1.5em;
+}
+
+#ft {
+
+	padding: 10px;
+	text-align: center;
+}
+
+#comments {
+	margin-left:15px;
+}
+
+#comments h2 {
+	margin:0;
+}
+
+.date {
+	font-style:italic;
+}
+
+#footer {
+	text-align:center;
+}
