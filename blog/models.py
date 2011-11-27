@@ -36,16 +36,4 @@ class Comment(models.Model):
 	def __unicode__(self):
 		return unicode("%s: %s" % (self.post, self.body[:60]))
 
-	def save(self, *args, **kwargs):
-		"""Email when a comment is added"""
-		if "notify" in kwargs and kwargs["notify"] == True:
-			message = "Comment was added to '%s' by '%s': \n\n%s" % (self.post, self.author, self.body)
-
-			from_address = 'noreply@lexandstuff'
-			recipient_list = ["lextoumbourou@gmail.com"]
-			send_mail("New comment added", message, from_address, recipient_list)
-
-		if "notify" in kwargs: del kwargs["notify"]
-		super(Comment, self).save(*args, **kwargs)
-
 ### Admin
