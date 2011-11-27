@@ -7,13 +7,14 @@ from django.http import HttpResponseRedirect
 from django.contrib.syndication.views import Feed
 from calendar import month_name
 import time
+import random
 from lexandstuff.blog.models import *
 
 def main(request):
 	"""Main listing."""
 
-	# Get all posts order by created date (desc)
-	posts = Post.objects.all().order_by("-created")
+	# Get all posts, excluding Info and Unpublished, order by created date (desc)
+	posts = Post.objects.all().exclude(type='I').exclude(is_pub='N').order_by("-created")
 
 	# Setup paginator
 	paginator = Paginator(posts, 20)
@@ -28,7 +29,7 @@ def main(request):
 	except (InvalidPage, EmptyPage):
 		posts = paginator.page(paginator.num_pages)
 
-	return render_to_response("list_articles.html", dict(posts=posts, user=request.user, post_list=posts.object_list))
+	return render_to_response("list_articles.html", dict(posts=posts, user=request.user, slogan=get_slogan(), post_list=posts.object_list))
 
 def post(request, pk):
 	"""Single post with comments and comment form"""
@@ -36,9 +37,13 @@ def post(request, pk):
 	# Get a single post
 	post = Post.objects.get(pk=int(pk))
 
-	# Get all the comments for that post
-	comments = Comment.objects.filter(post=post)
-	d = dict(post=post, comments=comments, form=CommentForm(), user=request.user)
+	# Get all the comments for that post unless type is info (About page for example)
+	if post.type == 'I':
+		comments = None
+	else:
+		comments = Comment.objects.filter(post=post)
+
+	d = dict(post=post, slogan=get_slogan(), comments=comments, form=CommentForm(), user=request.user)
 
 	# Keep data same from cross-site scripting
 	d.update(csrf(request))
@@ -87,4 +92,12 @@ def add_comment(request, pk):
 		comment.save()
 	
 	return HttpResponseRedirect(reverse("lexandstuff.blog.views.post", args=[pk]))
+
+def get_slogan():
+	slogs = []
+	slogs.append('A blog about coding and other stuff I think the internet should know.')
+	slogs.append('The wonderful blog of Lex Toumbouou.')
+	slogs.append('Automation, XBMC, Python, fun and fulfillment.')
+
+	return slogs[random.randrange(0, 3, 1)]
 

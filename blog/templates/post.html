@@ -3,24 +3,31 @@
 {% block content %}
 
 <div class="article">
-	<h2 class="title">{{ post.title }}</h2>
-	<div class="date">{{ post.created }}</div>
+	<div class="title"><h2><a href="/blog/posts/{{ post.pk }}">{{ post.title }}</a></h2>
+			<div class="date">({{ post.created }})</div><br />
+			<div class="desc">{{ post.desc }}</div>
+	</div>
+
+		{% autoescape off %}
 	<div class="body">{{ post.body|linebreaks }}</div>
+	{% endautoescape %}
 </div>
 
 <div id="comments">
 <!-- Comments -->
-{% if comments %}
-		<h2>Comments</h2>
-{% endif %}
+<div class="title"><h2><a href="{% url blog.views.post post.pk %}">{{ post.comment_set.count }} Comment(s)</a></h2></div>
 
+{% if comments %}
 	{% for comment in comments %}
 		<div class="comment">
-			<div class="date">{{ comment.created }} | {{ comment.author }}</div>
+			<div class="title"><h3>{{ comment.author }} says:</h3>
+			<div class="date">{{ comment.created }}</div>
+
 			<div class="body">{{ comment.body|linebreaks }}</div>
 		</div>
 	{% endfor %}
 
+{% endif %}
 	<div id="add_comment">Add a comment</div>
 	<form action="{% url blog.views.add_comment post.id %}" method="POST">{% csrf_token %}
 		<div id="com_form">

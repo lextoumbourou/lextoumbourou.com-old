@@ -11,9 +11,16 @@ class Post(models.Model):
 			(u'Y', u'Yes'),
 			(u'N', u'No'),
 	)
+	TYPE_CHOICES = (
+			(u'P', u'Project'),
+			(u'B', u'Blog'),
+			(u'I', u'Info'),
+	)
 	title = models.CharField(max_length=60)
+	desc = models.CharField(max_length=100)
 	body = models.TextField()
-	created = models.DateTimeField(auto_now_add=True)
+	created = models.DateField(auto_now=False,auto_now_add=False)
+	type = models.CharField(max_length=3)
 	is_pub = models.CharField(max_length=2, choices=PUB_CHOICES, verbose_name="published?")
 	tags = models.ManyToManyField(Tag)
 

@@ -4,8 +4,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<head>
-		<title>{% block title %}Lex and Stuff - Words for the computer and for you.{% endblock %}</title>
-		<link rel="stylesheet" href="/static/lexandstuff/default.css" type="text/css">
+		<title>{% block title %}Lex and Stuff - {{ slogan }}{% endblock %}</title>
+		<link href='http://fonts.googleapis.com/css?family=Jockey+One' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="/static/lexandstuff/css/default.css" type="text/css">
 		<link rel="stylesheet" href="/static/blueprint/screen.css" type="text/css" media="screen, projection">
 		<link rel="stylesheet" href="/static/blueprint/print.css" type="text/css" media="print">
 		<link rel="stylesheet" href="/static/blueprint/grid.css" type="text/css" media="print">
@@ -16,44 +17,28 @@
 
 	<body>
 		<div class="container">
-			<div id="header" class="span-19 ">
+			<div id="header" class="span-16 ">
 				{% block nav-global %}
 				<h1><a href="{% url blog.views.main %}">Lex and Stuff</a></h1>
 			</div>
 
-			<div id="main_menu" class="span-5 last">
+			<div id="main_menu" class="span-8 last">
 				<a href="/">Home</a>
-				<a href="/about">About</a>
-				{% if user.is_staff %}
-					<a href="{% url admin:index %}">Admin</a>
-					<a href="{% url admin:blog_post_add %}">Add post</a>
-				{% endif %}
+				<a href="/blog/posts/5">About</a>
+				<a href="http://github.com/lextoumbourou">GitHub</a>
+				<a href="http://twitter.com/lexandstuff">Twitter</a>
 			</div>
 
 			<div id="slogan" class="span-24 last">
-					A blog about coding in Python and other stuff that I think the internet should know about.
+				{{ slogan }}
 			</div>
-			<!-- 
-			<div id="topbar" class="span-24 last">
-				{% block sidebar %}
-					{% load sidebar %}
-					<div class="box">
-						{% blog_recent %}
-					</div>
-					<div class="box">
-						{% blog_tags %}
-					</div>
-				{% endblock %}
-			</div>
-			-->
-
 				{% endblock %}
 
 			<div id="content" class="span-24 last">
 				{% block content %}{% endblock %}
 			</div>
 
-						<div id="footer" class="span-19 last">
+			<div id="footer" class="span-24 last">
 				Page made by <a href="mailto:lextoumbourou@gmail.com">Lex Toumbourou</a>
 			</div>
 		</div>
