@@ -29,23 +29,26 @@ def main(request):
 	except (InvalidPage, EmptyPage):
 		posts = paginator.page(paginator.num_pages)
 
-	return render_to_response("list_articles.html", dict(posts=posts, user=request.user, slogan=get_slogan(), post_list=posts.object_list))
+	return render_to_response("articles.html", dict(posts=posts, user=request.user, slogan=get_slogan(), post_list=posts.object_list))
 
 def post(request, pk):
 	"""Single post with comments and comment form"""
 
-	# Get a single post
+	# Get a post
 	post = Post.objects.get(pk=int(pk))
 
-	# Get all the comments for that post unless type is info (About page for example)
+	# Hide the comments and create date if 'info' page
+	hide = {}
 	if post.type == 'I':
-		comments = None
-	else:
-		comments = Comment.objects.filter(post=post)
+		hide['comments'] = True
+		hide['date'] = True
 
-	d = dict(post=post, slogan=get_slogan(), comments=comments, form=CommentForm(), user=request.user)
+	# Get all comments
+	comments = Comment.objects.filter(post=post)
 
-	# Keep data same from cross-site scripting
+	d = dict(post=post, slogan=get_slogan(), comments=comments, hide=hide, form=CommentForm(), user=request.user)
+
+	# Keep data safe
 	d.update(csrf(request))
 
 	return render_to_response("post.html", d)

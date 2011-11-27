@@ -4,7 +4,9 @@
 
 <div class="article">
 	<div class="title"><h2><a href="/blog/posts/{{ post.pk }}">{{ post.title }}</a></h2>
+			{% if not hide.date %}
 			<div class="date">({{ post.created }})</div><br />
+			{% endif %}
 			<div class="desc">{{ post.desc }}</div>
 	</div>
 
@@ -13,6 +15,7 @@
 	{% endautoescape %}
 </div>
 
+{% if not hide.comments %}
 <div id="comments">
 <!-- Comments -->
 <div class="title"><h2><a href="{% url blog.views.post post.pk %}">{{ post.comment_set.count }} Comment(s)</a></h2></div>
@@ -37,5 +40,6 @@
 		<div id="submit"><input type="submit" value="Submit"></div>
 	</form>
 </div>
+{% endif %}
 
 {% endblock %}
