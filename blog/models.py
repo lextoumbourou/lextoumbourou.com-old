@@ -17,6 +17,7 @@ class Post(models.Model):
 			(u'I', u'Info'),
 	)
 	title = models.CharField(max_length=60)
+	slug = models.SlugField(max_length=50)
 	desc = models.CharField(max_length=100)
 	body = models.TextField()
 	created = models.DateField(auto_now=False,auto_now_add=False)

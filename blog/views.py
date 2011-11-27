@@ -31,11 +31,11 @@ def main(request):
 
 	return render_to_response("articles.html", dict(posts=posts, user=request.user, slogan=get_slogan(), post_list=posts.object_list))
 
-def post(request, pk):
+def post(request, slug):
 	"""Single post with comments and comment form"""
 
 	# Get a post
-	post = Post.objects.get(pk=int(pk))
+	post = Post.objects.get(slug=str(slug))
 
 	# Hide the comments and create date if 'info' page
 	hide = {}
