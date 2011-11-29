@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="article">
-	<div class="title"><h2><a href="/blog/posts/{{ post.pk }}">{{ post.title }}</a></h2>
+	<div class="title"><h2><a href="/blog/posts/{{ post.slug }}">{{ post.title }}</a></h2>
 			{% if not hide.date %}
 			<div class="date">({{ post.created }})</div><br />
 			{% endif %}
