@@ -9,5 +9,5 @@ urlpatterns = patterns('lexandstuff.blog.views',
 	url(r'^contact', direct_to_template, {'template': 'contact.html'}),
 	url(r'^$', 'main'),
 	url(r'^posts/(.*)/$', 'post'),
-	url(r'^add_comment/(\d+)/$', 'add_comment'),
+	url(r'^add_comment/(.*)/$', 'add_comment'),
 )

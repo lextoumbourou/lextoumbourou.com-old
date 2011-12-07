@@ -78,7 +78,7 @@ class CommentForm(ModelForm):
 		model = Comment
 		exclude = ["post"]
 
-def add_comment(request, pk):
+def add_comment(request, slug):
 	"""Add a new comment"""
 	p = request.POST
 
@@ -86,7 +86,7 @@ def add_comment(request, pk):
 		author = "Anonymous"
 		if p["author"]: author = p["author"]
 
-		comment = Comment(post=Post.objects.get(pk=pk))
+		comment = Comment(post=Post.objects.get(slug=str(slug)))
 		cf = CommentForm(p, instance=comment)
 		cf.fields["author"].required = False
 
@@ -94,7 +94,7 @@ def add_comment(request, pk):
 		comment.author = author
 		comment.save()
 	
-	return HttpResponseRedirect(reverse("lexandstuff.blog.views.post", args=[pk]))
+	return HttpResponseRedirect(reverse("lexandstuff.blog.views.post", args=[slug]))
 
 def get_slogan():
 	slogs = []
