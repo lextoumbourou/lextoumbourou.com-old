@@ -36,7 +36,15 @@
 		<div id="com_form">
 			Name: {{ form.author }}
 			<p>{{ form.body|linebreaks }}</p>
+			<p>{{ form.captcha }}</p>
 		</div>
+		{% if form.captcha.errors %}
+			{% for error in form.captcha.errors %}
+			<div class="errorlist">
+				{{ error }}
+			</div>
+			{% endfor %}
+		{% endif %}
 		<div id="submit"><input type="submit" value="Submit"></div>
 	</form>
 </div>

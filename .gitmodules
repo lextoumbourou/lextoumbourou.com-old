@@ -1,0 +1,3 @@
+[submodule "django-recaptcha"]
+	path = django-recaptcha
+	url = https://github.com/praekelt/django-recaptcha.git

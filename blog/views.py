@@ -1,6 +1,5 @@
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.core.urlresolvers import reverse
-from django.forms import ModelForm
 from django.shortcuts import render_to_response
 from django.core.context_processors import csrf
 from django.http import HttpResponseRedirect
@@ -9,6 +8,7 @@ from calendar import month_name
 import time
 import random
 from lexandstuff.blog.models import *
+from lexandstuff.blog.forms import *
 
 def main(request):
 	"""Main listing."""
@@ -31,7 +31,7 @@ def main(request):
 
 	return render_to_response("articles.html", dict(posts=posts, user=request.user, slogan=get_slogan(), post_list=posts.object_list))
 
-def post(request, slug):
+def post(request, slug, error=None):
 	"""Single post with comments and comment form"""
 
 	# Get a post
@@ -46,7 +46,7 @@ def post(request, slug):
 	# Get all comments
 	comments = Comment.objects.filter(post=post)
 
-	d = dict(post=post, slogan=get_slogan(), comments=comments, hide=hide, form=CommentForm(), user=request.user)
+	d = dict(post=post, slogan=get_slogan(), comments=comments, hide=hide, form=CommentForm(), user=request.user, error=error)
 
 	# Keep data safe
 	d.update(csrf(request))
@@ -73,11 +73,6 @@ def filter_by_tag(request, tag_name):
 
 	return render_to_response("list_articles.html", dict(posts=posts, user=request.user, post_list=posts.object_list))
 
-class CommentForm(ModelForm):
-	class Meta:
-		model = Comment
-		exclude = ["post"]
-
 def add_comment(request, slug):
 	"""Add a new comment"""
 	p = request.POST
@@ -88,11 +83,11 @@ def add_comment(request, slug):
 
 		comment = Comment(post=Post.objects.get(slug=str(slug)))
 		cf = CommentForm(p, instance=comment)
-		cf.fields["author"].required = False
-
-		comment = cf.save(commit=False)
-		comment.author = author
-		comment.save()
+		cf.fields['author'].required = False
+		if cf.is_valid():
+			comment = cf.save(commit=False)
+			comment.author = author
+			comment.save()
 	
 	return HttpResponseRedirect(reverse("lexandstuff.blog.views.post", args=[slug]))
 
