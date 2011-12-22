@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load comments %}
 
 {% block content %}
 
@@ -15,39 +16,19 @@
 	{% endautoescape %}
 </div>
 
-{% if not hide.comments %}
-<div id="comments">
-<!-- Comments -->
-<div class="title"><h2><a href="{% url blog.views.post post.pk %}">{{ post.comment_set.count }} Comment(s)</a></h2></div>
-
-{% if comments %}
-	{% for comment in comments %}
-		<div class="comment">
-			<div class="title"><h3>{{ comment.author }} says:</h3>
-			<div class="date">{{ comment.created }}</div>
-
-			<div class="body">{{ comment.body|linebreaks }}</div>
-		</div>
-	{% endfor %}
-
-{% endif %}
-	<div id="add_comment">Add a comment</div>
-	<form action="{% url blog.views.add_comment post.slug %}" method="POST">{% csrf_token %}
-		<div id="com_form">
-			Name: {{ form.author }}
-			<p>{{ form.body|linebreaks }}</p>
-			<p>{{ form.captcha }}</p>
-		</div>
-		{% if form.captcha.errors %}
-			{% for error in form.captcha.errors %}
-			<div class="errorlist">
-				{{ error }}
-			</div>
-			{% endfor %}
-		{% endif %}
-		<div id="submit"><input type="submit" value="Submit"></div>
-	</form>
+{% get_comment_list for post as comments %}
+{% for comment in comments %}
+<div class="comment">
+	<div class="title">
+		<h3>{{ comment.user }} says: </h3>
+		<div class="date">{{ comment.submit_date }}</div>
+	</div>
+	<div class="body">{{ comment.comment|linebreaks }}</div>
 </div>
-{% endif %}
+
+
+{% endfor %}
+
+{% render_comment_form for post %}
 
 {% endblock %}
