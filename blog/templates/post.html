@@ -20,7 +20,7 @@
 {% for comment in comments %}
 <div class="comment">
 	<div class="title">
-		<h3>{{ comment.user }} says: </h3>
+		<h3>{{ comment.name }} says: </h3>
 		<div class="date">{{ comment.submit_date }}</div>
 	</div>
 	<div class="body">{{ comment.comment|linebreaks }}</div>
