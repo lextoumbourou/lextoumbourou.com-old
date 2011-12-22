@@ -77,7 +77,7 @@ class PostModerator(CommentModerator):
 						key=settings.AKISMET_API_KEY
 						)
 
-		return spam and allow
+		return not spam and allow
 
 	email_notification = True
 	enable_field = 'enable_comments'
