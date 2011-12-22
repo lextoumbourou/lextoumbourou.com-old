@@ -1,0 +1,18 @@
+<div id="add_comment">Add a comment</div>
+	<form action="{% url blog.views.add_comment post.slug %}" method="POST">{% csrf_token %}
+		<div id="com_form">
+			Name: {{ form.author }}
+			<p>{{ form.body|linebreaks }}</p>
+			<p>{{ form.captcha }}</p>
+		</div>
+		{% if form.captcha.errors %}
+			{% for error in form.captcha.errors %}
+			<div class="errorlist">
+				{{ error }}
+			</div>
+			{% endfor %}
+		{% endif %}
+		<div id="submit"><input type="submit" value="Submit"></div>
+	</form>
+</div>
+

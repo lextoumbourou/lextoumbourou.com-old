@@ -6,5 +6,6 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^blog/', include('lexandstuff.blog.urls')),
+    url(r'^comments/', include('django.contrib.comments.urls')),
     url(r'^$', include('lexandstuff.blog.urls')),
 	)

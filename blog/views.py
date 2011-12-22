@@ -44,9 +44,9 @@ def post(request, slug, error=None):
 		hide['date'] = True
 
 	# Get all comments
-	comments = Comment.objects.filter(post=post)
+	#comments = Comment.objects.filter(post=post)
 
-	d = dict(post=post, slogan=get_slogan(), comments=comments, hide=hide, form=CommentForm(), user=request.user, error=error)
+	d = dict(post=post, slogan=get_slogan(), hide=hide, user=request.user, error=error)
 
 	# Keep data safe
 	d.update(csrf(request))
