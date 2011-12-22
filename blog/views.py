@@ -73,24 +73,6 @@ def filter_by_tag(request, tag_name):
 
 	return render_to_response("list_articles.html", dict(posts=posts, user=request.user, post_list=posts.object_list))
 
-def add_comment(request, slug):
-	"""Add a new comment"""
-	p = request.POST
-
-	if p.has_key("body") and p["body"]:
-		author = "Anonymous"
-		if p["author"]: author = p["author"]
-
-		comment = Comment(post=Post.objects.get(slug=str(slug)))
-		cf = CommentForm(p, instance=comment)
-		cf.fields['author'].required = False
-		if cf.is_valid():
-			comment = cf.save(commit=False)
-			comment.author = author
-			comment.save()
-	
-	return HttpResponseRedirect(reverse("lexandstuff.blog.views.post", args=[slug]))
-
 def get_slogan():
 	slogs = []
 	slogs.append('A blog about coding and other stuff I think the internet should know.')
