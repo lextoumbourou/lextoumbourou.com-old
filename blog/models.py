@@ -68,7 +68,7 @@ class PostModerator(CommentModerator):
 
 		return False
 
-	def allow(self, comment, content_object, request):
+	def moderate(self, comment, content_object, request):
 		allow = super(PostModerator, self).allow(comment, content_object, request)
 
 		spam = self.check_spam(
