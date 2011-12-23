@@ -1,11 +1,16 @@
-body {
-     background: -moz-linear-gradient(center top , #FFFFFF, #FFE6CC) repeat scroll 0% 0% transparent;
-     padding-left: 20px;
+html {
+    border: 0 none;
+    margin: 0;
+    padding: 0;
 }
 
-content {
-     background-color: #8F2E2E;
-     width: 100%;
+body {
+	color: #222222;
+	font-family: Helvetica;
+	padding-left: 20px;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
 }
 
 hr {
@@ -14,23 +19,40 @@ hr {
 }
 
 a, a:visited {
-     text-decoration: none;
+	color:#7187A2;
+	text-decoration: none;
 }
 
 a:hover {
      text-decoration: underline;
 }
 
+#header {
+}
+
 #header h1 {
-     font-family: 'Jockey One',sans-serif;
-     font-size: 4em;
-     margin-bottom: 2px;
-     width: 400px;
+	font-family: 'Jockey One',sans-serif;
+	font-size: 3.2em;
+	margin-bottom: 2px;
+	width:400px;
 }
 
 #header h1 a {
-     text-decoration: none;
+	color: #3B4653;
+	font-size: 2.8em;
+	font-weight: bold;
+	letter-spacing: -5px;
+	text-decoration: none;
+	margin-top:0;
+	line-height:0.9em;
 }
+
+#content {
+	float:left;
+	margin-left:5px;
+	padding-top:10px
+}
+
 
 #article_list {
      padding-left: 20px;
@@ -42,18 +64,26 @@ a:hover {
 
 .title h2 {
      display: inline;
-     font-family: 'Jockey One',sans-serif;
-     font-size: 2em;
+     font-size: 1.6em;
 }
 
 .title h2 a {
-     text-decoration: none;
+	font-color:#000;
+	text-decoration: none;
+	letter-spacing:-2px;
 }
 
 
-h3, .article h3, .comment h3 {
-     font-size: 1.4em;
-     font-family: 'Jockey One',sans-serif;
+.comment {
+	margin-bottom:20px;
+}
+
+.comment h3 {
+    border-color: #000000;
+    border-style: solid;
+    border-width: 0 0 0 10px;
+    margin-bottom: 0;
+    padding-bottom: 4px;
 }
 
 .title .date {
@@ -68,8 +98,11 @@ h3, .article h3, .comment h3 {
 
 #main_menu {
      margin-left: 0pt;
-     padding-left: 0pt;
-     white-space: nowrap;
+	float:right;
+
+}
+
+#main_menu ul{
 }
 
 #main_menu li {
@@ -78,17 +111,11 @@ h3, .article h3, .comment h3 {
 }
 
 #main_menu a {
-     -moz-border-bottom-colors: none;
-     -moz-border-image: none;
-     -moz-border-left-colors: none;
-     -moz-border-right-colors: none;
-     -moz-border-top-colors: none;
-     border-color: #000000;
-     border-radius: 0pt 0pt 5px 5px;
-     border-style: none dotted dotted;
-     font-family: 'Jockey One',sans-serif;
-     font-size: 1.5em;
-     padding: 3px 10px;
+	    color: #7187A2;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    padding: 6px 10px;
 }
 
 #main_menu a:link, #main_menu a:visited {
@@ -100,9 +127,22 @@ h3, .article h3, .comment h3 {
 }
 
 #slogan {
-     border-bottom: 1px dotted #000000;
-     border-top: 1px dotted #000000;
-     font-size: 1.5em;
+	font-size: 1.5em;
+	font-weight: bold;
+	letter-spacing: -2px;
+}
+
+pre, code {
+    background-color: #E6E1CD;
+    border-color: #000000;
+    border-style: dashed solid;
+    border-width: 5px 20px 4px 10px;
+    color: #000000;
+    font-family: Consolas;
+    font-size: 0.8em;
+    margin: 1.5em 0;
+    padding: 10px;
+    white-space: pre;	
 }
 
 .box {
@@ -122,7 +162,6 @@ h3, .article h3, .comment h3 {
 }
 
 .article {
-     margin: 0pt 1.5em 20px;
 }
 
 .article h2 {
@@ -146,7 +185,7 @@ h3, .article h3, .comment h3 {
      border-radius: 10pt 10pt 10px 10px;
      box-shadow: 5px 5px 5px #888888;
      display: block;
-     margin: 0pt auto;
+	 margin: 30px;
 }
 
 .article code {

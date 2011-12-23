@@ -5,42 +5,37 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<head>
 		<title>{% block title %}Lex and Stuff - {{ slogan }}{% endblock %}</title>
-				<link href='http://fonts.googleapis.com/css?family=Jockey+One' rel='stylesheet' type='text/css'>
-				<link rel="stylesheet" href="/static/lexandstuff/css/default.css" type="text/css">
-				<link rel="stylesheet" href="/static/blueprint/screen.css" type="text/css" media="screen, projection">
-				<link rel="stylesheet" href="/static/blueprint/print.css" type="text/css" media="print">
-				<link rel="stylesheet" href="/static/blueprint/grid.css" type="text/css" media="print">
-	<!--[if lt IE 8]>
-	  <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
+			<link rel="stylesheet" href="/static/lexandstuff/css/default.css" type="text/css">
+			<!--[if lt IE 8]>
+		  <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
   <![endif]-->
 	</head>
 
 	<body>
-		<div class="container">
-			<div id="header" class="span-16 ">
-				{% block nav-global %}
-				<h1><a href="{% url blog.views.main %}">Lex and Stuff</a></h1>
-			</div>
-
 			<div id="main_menu" class="span-8 last">
-				<a href="/">Home</a>
-				<a href="/blog/posts/about">About</a>
-				<a href="http://github.com/lextoumbourou">GitHub</a>
-				<a href="http://twitter.com/lexandstuff">Twitter</a>
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="/blog/posts/about">About</a></li>
+					<li><a href="http://github.com/lextoumbourou">GitHub</a></li>
+					<li><a href="http://twitter.com/lexandstuff">Twitter</a></li>
+				</ul>
 			</div>
 
-			<div id="slogan" class="span-24 last">
-				{{ slogan }}
+			<div id="header" class="span-16 ">
+				<h1><a href="{% url blog.views.main %}">Lex and Stuff</a></h1>
+				<div id="slogan" class="span-24 last">
+					{{ slogan }}
+				</div>
 			</div>
-				{% endblock %}
 
-			<div id="content" class="span-24 last">
+			
+			<div id="content">
 				{% block content %}{% endblock %}
-			</div>
 
-			<div id="footer" class="span-24 last">
-				Page made by <a href="mailto:lextoumbourou@gmail.com">Lex Toumbourou</a>
+				<div id="footer">
+					Page made by <a href="mailto:lextoumbourou@gmail.com">Lex Toumbourou</a>
+				</div>
+
 			</div>
-		</div>
 	</body>
 </html>
