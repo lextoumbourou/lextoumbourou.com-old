@@ -76,7 +76,7 @@ def filter_by_tag(request, tag_name):
 def get_slogan():
 	slogs = []
 	slogs.append('A blog about coding and other stuff I think the internet should know.')
-	slogs.append('The wonderful blog of Lex Toumbouou.')
+	slogs.append('The wonderful blog of Lex Toumbourou.')
 	slogs.append('Automation, XBMC, Python, fun and fulfillment.')
 
 	return slogs[random.randrange(0, 3, 1)]
