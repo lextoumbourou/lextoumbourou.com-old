@@ -236,5 +236,7 @@ pre, code {
 #footer {
      margin-top: 2em;
      text-align: center;
+	 border-top: 6px dotted #000;
+	 padding-top: 10px;
 }
 
