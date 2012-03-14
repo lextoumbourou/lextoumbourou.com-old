@@ -2,7 +2,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<head>
-		<title>{% block title %}Lex and Stuff - {{ slogan }}{% endblock %}</title>
+		<title>{% block title %}LexToumbourou.com - {{ slogan }}{% endblock %}</title>
 			<script type="text/javascript" src="/static/lexandstuff/js/prettify.js"></script>
 			<link rel="stylesheet" href="/static/lexandstuff/css/prettify.css" type="text/css">
 			<link rel="stylesheet" href="/static/lexandstuff/css/default.css" type="text/css">
@@ -13,6 +13,13 @@
 
 	<body onload="prettyPrint()">
 		<div id="container">
+			<div id="main_menu">
+				<ul>
+					<li><a href="/blog/posts/about">About</a> | </li>
+					<li><a href="http://github.com/lextoumbourou">GitHub</a> | </li>
+					<li><a href="http://twitter.com/lexandstuff">Twitter</a> </li>
+				</ul>
+			</div>
 			<div id="header">
 				<h1><a href="{% url blog.views.main %}">LexToumbourou.com</a></h1>
 				<div id="slogan">
@@ -28,12 +35,7 @@
 		</div>
 
 		<div class="footer">
-				<ul>
-					<li><a href="/blog/posts/about">About</a> | </li>
-					<li><a href="http://github.com/lextoumbourou">GitHub</a> | </li>
-					<li><a href="http://twitter.com/lexandstuff">Twitter</a> </li>
-				</ul>
-			</div>
+		</div>
 
 		
 	</body>

@@ -122,19 +122,12 @@ ul.articles li {
 }
 
 #main_menu ul{
+text-align:right;
 }
 
 #main_menu li {
      display: inline;
      list-style-type: none;
-}
-
-#main_menu a {
-	    color: #7187A2;
-    font-size: 20px;
-    font-weight: bold;
-    letter-spacing: -1px;
-    padding: 6px 10px;
 }
 
 #main_menu a:link, #main_menu a:visited {
@@ -257,11 +250,4 @@ pre.prettyprint {
 	height: 100px; /* .push must be the same height as .footer */
 	background-color: #222222
 }
-	.footer ul {
-		text-align:center;
-	}
-
-	.footer ul li {
-		display:inline;
-	}
-
+	
