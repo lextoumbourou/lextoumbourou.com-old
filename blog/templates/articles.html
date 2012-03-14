@@ -3,13 +3,14 @@
 <!-- Begin Blog List -->
 {% block content %}
 	<!-- Begin Article -->
+	<ul>
 	{% for post in posts.object_list %}
-		<div class="article">
-			<div class="title"><h2><a href="/blog/posts/{{ post.slug }}">{{ post.title }}</a></h2>
-				<div class="date">({{ post.created }})</div><br />
-				<div class="desc">{{ post.desc }}</div></div>
-		</div>
+			<li>
+			<div class="title"><h2>{{ post.created }}. <a href="/blog/posts/{{ post.slug }}">{{ post.title }}</a></h2></span><br />
+				<div class="desc">{{ post.desc }}</div>
+			</li>
 	{% endfor %} 
+	</ul>
 	<!-- End Article -->
 
 	<!-- Next/Prev page links -->

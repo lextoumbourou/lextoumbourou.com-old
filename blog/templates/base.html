@@ -1,29 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!doctype html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<head>
 		<title>{% block title %}Lex and Stuff - {{ slogan }}{% endblock %}</title>
+			<script type="text/javascript" src="/static/lexandstuff/js/prettify.js"></script>
+			<link rel="stylesheet" href="/static/lexandstuff/css/prettify.css" type="text/css">
 			<link rel="stylesheet" href="/static/lexandstuff/css/default.css" type="text/css">
 			<!--[if lt IE 8]>
 		  <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
   <![endif]-->
 	</head>
 
-	<body>
-			<div id="main_menu" class="span-8 last">
-				<ul>
-					<li><a href="/">Home</a></li>
-					<li><a href="/blog/posts/about">About</a></li>
-					<li><a href="http://github.com/lextoumbourou">GitHub</a></li>
-					<li><a href="http://twitter.com/lexandstuff">Twitter</a></li>
-				</ul>
-			</div>
-
-			<div id="header" class="span-16 ">
-				<h1><a href="{% url blog.views.main %}">Lex and Stuff</a></h1>
-				<div id="slogan" class="span-24 last">
+	<body onload="prettyPrint()">
+		<div id="container">
+			<div id="header">
+				<h1><a href="{% url blog.views.main %}">LexToumbourou.com</a></h1>
+				<div id="slogan">
 					{{ slogan }}
 				</div>
 			</div>
@@ -31,6 +23,17 @@
 			
 			<div id="content">
 				{% block content %}{% endblock %}
+				<div id="footer">
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li><a href="/blog/posts/about">About</a></li>
+						<li><a href="http://github.com/lextoumbourou">GitHub</a></li>
+						<li><a href="http://twitter.com/lexandstuff">Twitter</a></li>
+					</ul>
+				</div>
+
 			</div>
+		</div>
+		
 	</body>
 </html>

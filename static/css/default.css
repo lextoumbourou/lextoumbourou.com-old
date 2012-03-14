@@ -8,7 +8,7 @@ body {
 	color: #222222;
 	font-family: Helvetica;
 	padding-left: 20px;
-    margin: 0;
+    margin-left: 100px;
     padding: 0;
     vertical-align: baseline;
 }
@@ -36,10 +36,7 @@ a:hover {
 }
 
 #header h1 {
-	font-family: 'Jockey One',sans-serif;
-	font-size: 3.2em;
 	margin-bottom: 2px;
-	width:400px;
 }
 
 #header h1 a {
@@ -52,15 +49,20 @@ a:hover {
 	line-height:0.9em;
 }
 
+#container {
+	width:900px;
+	margin:auto;
+}
+
 #content {
-	float:left;
-	margin-left:5px;
 	padding-top:10px
 }
 
-
 #article_list {
      padding-left: 20px;
+}
+ul li {
+	list-style-type:none;
 }
 
 .title {
@@ -75,7 +77,7 @@ a:hover {
 .title h2 a {
 	font-color:#000;
 	text-decoration: none;
-	letter-spacing:-2px;
+	letter-spacing:-0.5px;
 }
 
 
@@ -132,16 +134,12 @@ a:hover {
 }
 
 #slogan {
-	font-size: 1.5em;
+	font-size: 2.2em;
 	font-weight: bold;
-	letter-spacing: -2px;
+	letter-spacing: -1px;
 }
 
 pre, code {
-    background-color: #E6E1CD;
-    border-color: #000000;
-    border-style: dashed solid;
-    border-width: 5px 20px 4px 10px;
     color: #000000;
     font-family: Consolas;
     font-size: 0.8em;
@@ -149,6 +147,15 @@ pre, code {
     padding: 10px;
     white-space: pre;	
 }
+
+/* Prettify override */
+pre.prettyprint {
+	border: 0;
+}
+
+	pre.prettyprint .str {
+		color: #7187A2;
+	}
 
 .box {
      background: none repeat scroll 0% 0% #FFD9B3;
@@ -235,8 +242,13 @@ pre, code {
 
 #footer {
      margin-top: 2em;
-     text-align: left;
-	 border-top: 6px dotted #000;
 	 padding-top: 10px;
 }
+	#footer ul {
+		margin:auto;
+	}
+	#footer ul li {
+		padding-right:20px;
+		display:inline;
+	}
 
