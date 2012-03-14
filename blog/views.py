@@ -76,7 +76,7 @@ def filter_by_tag(request, tag_name):
 def get_slogan():
 	slogs = []
 	slogs.append('A blog about coding and other stuff I think the internet should know')
-	slogs.append('The wonderful story of a guy with a long last name')
+	slogs.append('The story of a guy with a long last name')
 	slogs.append('Automation, XBMC, Python, fun and fulfillment')
 	slogs.append('Don\'t feel bad, I probably wouldn\'t read this blog either')
 

@@ -3,11 +3,11 @@
 <!-- Begin Blog List -->
 {% block content %}
 	<!-- Begin Article -->
-	<ul>
+	<ul class="articles">
 	{% for post in posts.object_list %}
 			<li>
-			<div class="title"><h2>{{ post.created }}. <a href="/blog/posts/{{ post.slug }}">{{ post.title }}</a></h2></span><br />
-				<div class="desc">{{ post.desc }}</div>
+			<div class="title"><h2>{{ post.created }}. <a href="/blog/posts/{{ post.slug }}">{{ post.title }}</a></h2><br />
+				<div class="desc">{{ post.desc }}</div></div>
 			</li>
 	{% endfor %} 
 	</ul>

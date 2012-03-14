@@ -1,3 +1,6 @@
+html, body {
+	height: 100%;
+}
 html {
     border: 0 none;
     margin: 0;
@@ -50,8 +53,11 @@ a:hover {
 }
 
 #container {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -100px; /* the bottom margin is the negative value of the footer's height */
 	width:900px;
-	margin:auto;
 }
 
 #content {
@@ -61,7 +67,13 @@ a:hover {
 #article_list {
      padding-left: 20px;
 }
-ul li {
+
+ul.articles {
+	margin:0;
+	padding:0;
+}
+
+ul.articles li {
 	list-style-type:none;
 }
 
@@ -240,15 +252,16 @@ pre.prettyprint {
 .date {
 }
 
-#footer {
-     margin-top: 2em;
-	 padding-top: 10px;
+.footer .push {
+	clear:both;
+	height: 100px; /* .push must be the same height as .footer */
+	background-color: #222222
 }
-	#footer ul {
-		margin:auto;
+	.footer ul {
+		text-align:center;
 	}
-	#footer ul li {
-		padding-right:20px;
+
+	.footer ul li {
 		display:inline;
 	}
 
