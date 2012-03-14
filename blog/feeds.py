@@ -7,13 +7,13 @@ class LatestEntriesFeed(Feed):
 	description = 'A blog about coding and other stuff I think the internet should know'
 
 	def items(self):
-		return Post.objects.order_by('-created')
+		return Post.objects.exclude(type='I').filter(is_pub='Y').order_by('-created')
 
 	def item_title(self, item):
 		return item.title
 
 	def item_description(self, item):
-		return item.desc
+		return item.body
 
 	def item_link(self, item):
 		return 'http://lexandstuff.com/blog/posts/'+item.slug
