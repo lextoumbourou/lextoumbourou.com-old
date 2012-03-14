@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="articles">
-	<div class="title"><h2>{{ post.created }}. <a href="/blog/posts/{{ post.slug }}">{{ post.title }}</a></h2><br />
+	<div class="title"><h2>{% if post.type != 'I' %}{{ post.created }}. {% endif %}<a href="/blog/posts/{{ post.slug }}">{{ post.title }}</a></h2><br />
 		<div class="desc">{{ post.desc }}</div></div>
 
 		{% autoescape off %}
