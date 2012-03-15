@@ -1,4 +1,24 @@
+/*
+ * I, Lex Toumbourou, hereby solemnly swear to refactor this code...
+ */
 $(function() {
+
+	$(document).ready(function() {
+		var articles = $('ul.articles');
+		var lastHr = $('hr').last();
+
+		articles.css('opacity', 0);
+		lastHr.css('display', 'none')
+
+		$('#slogan').css('opacity', 0)
+			.animate({opacity: 1}, 1000, function() {
+				articles.animate({'opacity':1},(1500))
+			});
+			lastHr.fadeIn(2500);
+
+		$('div.article_body').css('display', 'none').fadeIn(1500).slideDown(1500);
+	});
+
 	var makePullQuotes = function() {
 		/*
 		 * Finds all elements called .pull_quote and turns them into "call out" quotes
@@ -20,25 +40,59 @@ $(function() {
 		});
 	};
 
-	var pageTransition = function() {
+	var pageTransition = function(list) {
 		/*
-		 * Accepts a container div and an element found the container
-		 * that when clicked on, will fade all the other elements
-		 * and slide to the top of the screen
+		 * Various transistion effects
 		 */
+		var ul = $(list);
+		var lis = ul.children();
+		var titles = lis.children('.title');
 
-		var titles = $('.title');
+		// Set each list item to absolute positions
+		lis.each(function() {
+			var h = $(this).position().top;
+			$(this).css('top', h+'px');
+		});
+		
+		var topPos = lis.eq(0).position();
+
 		titles.on('click', 'a', function(e) {
 			e.preventDefault();
-			// Get all <li>s except the one that holds the current element
-			// and fade them out
-			$(this)
-				.parents('li')
+			var url = $(this).attr('href');
+			$self = $(this);
+			$('hr').last().fadeOut('fast', function(){
+				lis.css('position', 'absolute');
+				$self
+					.parents('li')
 					.siblings()
-					.fadeOut(1000);
+						.fadeOut('slow')
+						.end()
+						.animate(
+							{top:topPos.top},
+							1000,
+							function() {
+								$('#slogan').animate({'opacity':0},200, function() {
+									window.location.replace(url);
+								});
+							}
+						);
+			});
+			
+		});
+
+		$('h1').on('click', 'a', function(e) {
+			e.preventDefault();
+			var url = $(this).attr('href');
+			$('div#content').animate({'opacity':0}, 1000, function() {
+				$('#slogan').animate({'opacity':0},300, function() {
+					window.location.replace(url);
+				});
+			});
+
 		});
 
 	};
-	pageTransition()
+
+	pageTransition('ul.articles');
 	makePullQuotes();
 });
