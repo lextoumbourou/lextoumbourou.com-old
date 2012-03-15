@@ -11,7 +11,6 @@ body {
 	color: #222222;
     font-family: Georgia,Helvetica,Arial,sans-serif;
 	padding-left: 20px;
-    margin-left: 100px;
     padding: 0;
     vertical-align: baseline;
 }
@@ -21,21 +20,14 @@ h1 {
 	padding:0;
 }
 
-hr {
-     margin: auto auto 17px;
-     width: 30%;
-}
-
 a, a:visited {
 	color:#7187A2;
 	text-decoration: none;
 }
 
 a:hover {
-     text-decoration: underline;
+	text-decoration: underline;
 }
-
-/* Libraries */
 
 hr {
 	background:url(http://media.smashingmagazine.com/images/hr/bg_line_ornament.png) top center no-repeat;
@@ -44,6 +36,9 @@ hr {
 	margin: 30px 0;
 	border:0;
 }
+
+/* Libraries */
+
 
 #header {
 }
@@ -64,9 +59,7 @@ hr {
 
 #container {
 	min-height: 100%;
-	height: auto !important;
-	height: 100%;
-	margin: 0 auto -100px; /* the bottom margin is the negative value of the footer's height */
+	margin: 0 auto; /* the bottom margin is the negative value of the footer's height */
 	width:900px;
 }
 
@@ -102,8 +95,6 @@ blockquote.pull_quote {
 			float:left;
 		}
 
-
-
 .title {
      margin: 1em 0pt;
 }
@@ -115,7 +106,6 @@ blockquote.pull_quote {
 
 .title h2 a {
 	font-color:#000;
-	text-decoration: none;
 	letter-spacing:-0.5px;
 }
 
@@ -238,18 +228,6 @@ pre.prettyprint {
      margin: 0pt auto;
 }
 
-.comment {
-     margin: 10px 0pt;
-}
-.comment h3 {
-    border-bottom: 1px dotted #000000;
-    padding-bottom: 4px;
-    margin-bottom: 0px;
-}
-
-.comment .date {
-    margin-top: 0px
-}
 #tags {
      color: #000000;
      height: 100px;
@@ -262,20 +240,3 @@ pre.prettyprint {
      text-align: center;
 }
 
-#comments {
-     margin-left: 15px;
-}
-
-#comments h2 {
-     margin: 0pt;
-}
-
-.date {
-}
-
-.footer .push {
-	clear:both;
-	height: 100px; /* .push must be the same height as .footer */
-	background-color: #222222
-}
-	
