@@ -30,7 +30,7 @@ a:hover {
 }
 
 hr {
-	background:url(http://media.smashingmagazine.com/images/hr/bg_line_ornament.png) top center no-repeat;
+	background:url(/static/lexandstuff/images/bg_line_ornament.png) top center no-repeat;
 	height:20px;
 	width:100%;
 	margin: 30px 0;
