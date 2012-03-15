@@ -2,6 +2,7 @@
 
 {% block content %}
 <div class="articles">
+	<a name="article"></a>
 	<div class="title">
 		<h2>
 			{% if post.type != 'I' %}
@@ -12,9 +13,11 @@
 		<div class="desc">{{ post.desc }}</div>
 	</div>
 
-	{% autoescape off %}
-	<p class="article_body">{{ post.body }}</p>
-	{% endautoescape %}
+	<div class="article_body">
+		{% autoescape off %}
+		{{ post.body }}
+		{% endautoescape %}
+	</div>
 </div>
 
 {% endblock %}

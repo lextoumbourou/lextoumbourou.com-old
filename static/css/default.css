@@ -74,6 +74,7 @@ ul.articles {
 
 ul.articles li {
 	list-style-type:none;
+     margin: 1em 0pt;
 }
 
 blockquote.pull_quote {
@@ -97,7 +98,6 @@ blockquote.pull_quote {
 		}
 
 .title {
-     margin: 1em 0pt;
 }
 
 .title h2 {
