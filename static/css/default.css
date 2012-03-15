@@ -9,7 +9,7 @@ html {
 
 body {
 	color: #222222;
-	font-family: Helvetica;
+    font-family: Georgia,Helvetica,Arial,sans-serif;
 	padding-left: 20px;
     margin-left: 100px;
     padding: 0;
@@ -33,6 +33,16 @@ a, a:visited {
 
 a:hover {
      text-decoration: underline;
+}
+
+/* Libraries */
+
+hr {
+	background:url(http://media.smashingmagazine.com/images/hr/bg_line_ornament.png) top center no-repeat;
+	height:20px;
+	width:100%;
+	margin: 30px 0;
+	border:0;
 }
 
 #header {
@@ -60,10 +70,6 @@ a:hover {
 	width:900px;
 }
 
-#content {
-	padding-top:10px
-}
-
 #article_list {
      padding-left: 20px;
 }
@@ -77,13 +83,34 @@ ul.articles li {
 	list-style-type:none;
 }
 
+blockquote.pull_quote {
+    font-size: 2.2em;
+    line-height: 1.2em;
+    margin-bottom: 5px;
+    margin-top: 1px;
+    padding: 15px;
+    text-align: left;
+    width: 25%;
+}
+	blockquote.pull_quote:before, blockquote.pull_quote:after {
+		content: '"';
+	}
+		blockquote.pull_quote.left {
+			float:right;
+		}
+		blockquote.pull_quote.right {
+			float:left;
+		}
+
+
+
 .title {
      margin: 1em 0pt;
 }
 
 .title h2 {
      display: inline;
-     font-size: 1.6em;
+     font-size: 1.5em;
 }
 
 .title h2 a {
@@ -139,9 +166,10 @@ text-align:right;
 }
 
 #slogan {
-	font-size: 2.2em;
+	font-size: 1.7em;
 	font-weight: bold;
 	letter-spacing: -1px;
+	text-align:center;
 }
 
 pre, code {
