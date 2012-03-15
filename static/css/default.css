@@ -95,10 +95,10 @@ blockquote.pull_quote {
 	blockquote.pull_quote:before, blockquote.pull_quote:after {
 		content: '"';
 	}
-		blockquote.pull_quote.left {
+		blockquote.pull_quote.right {
 			float:right;
 		}
-		blockquote.pull_quote.right {
+		blockquote.pull_quote.left {
 			float:left;
 		}
 
