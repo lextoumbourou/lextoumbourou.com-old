@@ -91,7 +91,7 @@ def get_slogan():
 	if day > len(slogs):
 		choice = day - (len(slogs)-1)
 	else:
-		choice = day
+		choice = day - 1
 
 	return slogs[choice]
 
