@@ -1,11 +1,12 @@
 $(function(){
 	var make_pull_quotes = function() {
 		/*
-		 * Finds all elements called .l_quote and turns them into "call out" quotes
+		 * Finds all elements called .pull_quote and turns them into "call out" quotes
 		 */
 		var pull_quote = $('span.pull_quote').each(function(){
 			var $this = $(this);
 
+			// checks if an additional alignment class has been specified
 			var align = $this.hasClass('left') ? 'left' : 'right'; 
 
 			var blockquote = $('<blockquote></blockquote>', {
@@ -18,6 +19,5 @@ $(function(){
 		});
 	};
 
-	/* Main */
 	make_pull_quotes();
 });
