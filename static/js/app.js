@@ -10,11 +10,8 @@ $(function() {
 		articles.css('opacity', 0);
 		lastHr.css('display', 'none')
 
-		$('#slogan').css('opacity', 0)
-			.animate({opacity: 1}, 1000, function() {
-				articles.animate({'opacity':1},(1500))
-			});
-			lastHr.fadeIn(2500);
+		articles.animate({'opacity':1},(1500))
+		lastHr.fadeIn(2500);
 
 		$('div.article_body').css('display', 'none').fadeIn(1500).slideDown(1500);
 	});
@@ -71,9 +68,7 @@ $(function() {
 							{top:topPos.top},
 							1000,
 							function() {
-								$('#slogan').animate({'opacity':0},200, function() {
-									window.location.replace(url);
-								});
+								window.location.replace(url);
 							}
 						);
 			});
@@ -84,9 +79,7 @@ $(function() {
 			e.preventDefault();
 			var url = $(this).attr('href');
 			$('div#content').animate({'opacity':0}, 1000, function() {
-				$('#slogan').animate({'opacity':0},300, function() {
-					window.location.replace(url);
-				});
+				window.location.replace(url);
 			});
 
 		});

@@ -6,6 +6,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.syndication.views import Feed
 from calendar import month_name
 import time
+from datetime import datetime
 import random
 from lexandstuff.blog.models import *
 from lexandstuff.blog.forms import *
@@ -74,11 +75,23 @@ def filter_by_tag(request, tag_name):
 	return render_to_response("list_articles.html", dict(posts=posts, user=request.user, post_list=posts.object_list))
 
 def get_slogan():
+	"""
+	Returns a different slogan each day of the week
+	"""
+	day = datetime.now().weekday()
+
 	slogs = []
 	slogs.append('A blog about coding and other stuff I think the internet should know')
 	slogs.append('The story of a guy with a long last name')
 	slogs.append('Automation, XBMC, Python, fun and fulfillment')
 	slogs.append('Don\'t feel bad, I probably wouldn\'t read this blog either')
 
-	return slogs[random.randrange(0, len(slogs), 1)]
+	# Since we have less then 7 slogans,
+	# we start again once we reach our max
+	if day > len(slogs):
+		choice = day - (len(slogs)-1)
+	else:
+		choice = day
+
+	return slogs[choice]
 
