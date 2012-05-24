@@ -57,7 +57,7 @@ python manage.py syncdb
 Usage
 ======
 
-* Relies completely on the Django admin site, access it via http://yoursite/admin
+* Relies completely on the Django admin site, access it via [http://yoursite/admin](http://yousite/admin)
 * Write what you know
 * Show, don't tell
 
