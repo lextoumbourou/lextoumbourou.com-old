@@ -4,7 +4,6 @@ from django.shortcuts import render_to_response
 from django.contrib.syndication.views import Feed
 from datetime import datetime
 from lexandstuff.blog.models import *
-from lexandstuff.blog.forms import *
 
 def main(request):
     """Main listing."""
