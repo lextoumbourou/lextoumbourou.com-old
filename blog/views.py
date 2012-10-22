@@ -8,8 +8,14 @@ from lexandstuff.blog.models import *
 def main(request):
     """Main listing."""
 
-    # Get all posts, except info and unpublished, newest to older 
-    posts = Post.objects.all().exclude(type='I').exclude(is_pub='N').order_by("-created")
+    # Get all posts, except info posts
+    posts = Post.objects.all().exclude(type='I')
+
+    # Only staff can see unpublished posts
+    if not request.user.is_staff:
+        posts = posts.exclude(is_pub='N')
+
+    posts = posts.order_by("-created")
 
     # Setup paginator
     paginator = Paginator(posts, 20)
