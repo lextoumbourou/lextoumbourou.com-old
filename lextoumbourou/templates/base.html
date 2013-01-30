@@ -1,15 +1,17 @@
 {% load analytics %}
+{% load static %}
+
 <!doctype html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
         <title>{% block title %}LexToumbourou.com - {{ slogan }}{% endblock %}</title>
         {% block scripts %}
-            <script type="text/javascript" src="/static/lexandstuff/js/prettify.js"></script>
+            <script type="text/javascript" src="{% static 'js/prettify.js' %}"></script>
             <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-            <script type="text/javascript" src="/static/lexandstuff/js/app.js"></script>
-            <link rel="stylesheet" href="/static/lexandstuff/css/prettify.css" type="text/css">
-            <link rel="stylesheet" href="/static/lexandstuff/css/default.css" type="text/css">
+            <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
+            <link rel="stylesheet" href="{% static 'css/prettify.css' %}" type="text/css">
+            <link rel="stylesheet" href="{% static 'css/default.css' %}" type="text/css">
             <!--[if lt IE 8]>
               <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
             <![endif]-->
