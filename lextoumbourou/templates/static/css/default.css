@@ -157,15 +157,6 @@ blockquote.pull_quote {
     text-align:center;
 }
 
-pre, code {
-    color: #000000;
-    font-family: Consolas;
-    font-size: 0.8em;
-    margin: 1.5em 0;
-    padding: 10px;
-    white-space: pre;	
-}
-
 /* Prettify override */
 pre.prettyprint {
     border: 0;
