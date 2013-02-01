@@ -1,7 +1,9 @@
 import os
 import private
 
-if os.uname()[1] in private.DEV_SERVERS:
+is_dev = os.uname()[1] in private.DEV_SERVERS
+
+if is_dev:
     DEBUG = True
 else:
     DEBUG = False
@@ -20,10 +22,14 @@ DATABASES = {
         'NAME': private.DB_NAME,
         'USER': private.DB_USER,
         'PASSWORD': private.DB_PASS,
-        'HOST': private.DB_HOST,
         'PORT': private.DB_PORT,
     }
 }
+
+# Set the database host to either prod or dev address
+DATABASES['default']['HOST'] = (
+    private.DEV_DB_HOST if is_dev else private.PROD_DB_HOST
+)
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
