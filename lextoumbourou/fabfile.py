@@ -1,6 +1,6 @@
 import os
 
-from fabric.api import run, env, settings, cd, put, sudo
+from fabric.api import run, env, settings, cd, put, sudo, local
 from fabric.contrib import files
 
 import private
@@ -11,7 +11,7 @@ def prod():
     env.hosts = list(private.PROD_SERVERS)
 
 
-def local():
+def localhost():
     env.hosts = ['localhost']
 
 
@@ -19,21 +19,16 @@ def initial_build():
     """
     Clone project and set permissions
     """
-    # Clone project if it doesn't exist
-    with settings(warn_only=True):
-        if run('test -d {0}'.format(private.APP_DIR)).failed:
-            run('git clone {0} {1}'.format(GIT_REPO, private.APP_DIR))
-
-    # Make sure permissions are correct
-    sudo('chown -R {0} {1}'.format(private.USER_GROUP, private.APP_DIR))
-    sudo('chmod -R 775 {0}'.format(private.APP_DIR))
+    local('ansible-playbook /etc/ansible/lexandstuff/lextoumbourou.yml')
 
 
 def deploy():
     """
     Deploy code to production
     """
-    initial_build()
+    with settings(warn_only=True):
+        if run('test -d {0}'.format(private.APP_DIR)).failed:
+            initial_build()
 
     # Perform Django app deployment tasks
     with cd(private.APP_DIR):
