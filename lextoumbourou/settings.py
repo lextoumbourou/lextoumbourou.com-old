@@ -123,6 +123,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'bootup',
     'google_analytics',
     'lextoumbourou.blog',
 )
@@ -155,3 +156,8 @@ LOGGING = {
         },
     }
 }
+
+# Django Bootup configuration settings
+BOOTUP_SUPERUSER_NAME = private.SUPERUSER_NAME
+BOOTUP_SUPERUSER_PASSWORD = private.SUPERUSER_PASSWORD
+BOOTUP_SUPERUSER_EMAIL = private.SUPERUSER_EMAIL
