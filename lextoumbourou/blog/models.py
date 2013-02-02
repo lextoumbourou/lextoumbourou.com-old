@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.comments.moderation import CommentModerator, moderator
 from django.contrib.sites.models import Site
 from django.conf import settings
 
@@ -25,7 +24,6 @@ class Post(models.Model):
     type = models.CharField(max_length=3)
     is_pub = models.CharField(max_length=2, choices=PUB_CHOICES, verbose_name="published?")
     tags = models.ManyToManyField(Tag)
-    enable_comments = models.BooleanField()
 
     def __unicode__(self):
         return self.title
