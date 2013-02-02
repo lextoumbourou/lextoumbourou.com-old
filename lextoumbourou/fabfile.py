@@ -39,5 +39,5 @@ def deploy():
     with cd(private.APP_DIR):
         run('git pull')
         put('private.py', 'lextoumbourou/private.py')
-        run('python manage.py syncdb')
-        run('python manage.py collectstatic --noinput')
+        run('./python-env/bin/python manage.py syncdb')
+        run('./python-env/bin/python manage.py collectstatic --noinput')
