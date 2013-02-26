@@ -4,15 +4,8 @@
 $(function() {
     $(document).ready(function() {
             var articles = $('ul.articles');
-            var lastHr = $('hr').last();
-
-            articles.css('opacity', 0);
-            lastHr.css('display', 'none')
-
             articles.animate({'opacity':1},(1500))
-            lastHr.fadeIn(2500);
-
-            $('div.article_body').css('display', 'none').fadeIn(1500).slideDown(1500);
+            $('div.article_body').animate({'opacity':1},(1500));
     });
 
     var makePullQuotes = function() {

@@ -65,11 +65,16 @@ hr {
 ul.articles {
     margin:0;
     padding:0;
+    opacity: 0;
 }
 
 ul.articles li {
     list-style-type:none;
     margin: 1em 0pt;
+}
+
+div.article_body {
+    opacity: 0;
 }
 
 blockquote.pull_quote {
